@@ -282,7 +282,7 @@ FontEditor.prototype = {
         txt += "}";
         
         //
-        this.output.textContent = txt;
+        this.output.value = txt;
     }
     
     
