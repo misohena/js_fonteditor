@@ -55,4 +55,4 @@ Vector2.prototype = {
     {
         return this.subtract(v).length();
     }
-}
+};
