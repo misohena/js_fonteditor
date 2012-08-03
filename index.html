@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Freehand Font Editor(JavaScript手書きフォントエディタ)</title>
+    <!--[if IE]><script type="text/javascript" src="../../lib/excanvas/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="Vector2.js"></script>
+    <script type="text/javascript" src="FontEditor.js"></script>
+  </head>
+  <body onload="main()">
+    <h1>Freehand Font Editor(JavaScript手書きフォントエディタ)</h1>
+    <p>Mozilla Firefox 2.0以上推奨。IEだとたぶん動かないと思います。Operaも多分無理。</p>
+    <p>
+      character:<input id="charcode" type="text" size="10"><br>
+      <canvas id="strokes_canvas" width="256" height="256" style="border:solid">canvas要素に対応したブラウザが必要です。</canvas>
+      <canvas id="glyphs_canvas" width="256" height="256" style="border:solid">canvas要素に対応したブラウザが必要です。</canvas>
+    </p>
+    <p>
+      <button onClick="fontEditor.undoStroke()">undo stroke</button>
+      <button onClick="fontEditor.clearStrokes()">clear strokes</button>
+      <button onClick="fontEditor.registerGlyph()">register glyph</button>
+      <button onClick="fontEditor.outputGlyphsText()">output text</button>
+    </p>
+    <textarea id="output" rows="10" cols="70"></textarea>
+    <h2>使い方</h2>
+    <ol>
+      <li>characterの欄に一文字入力します(例:A)。</li>
+      <li>1で入力した文字の字形を左の枠内にマウスで描きます。間違った場合はundo strokeやclear strokesで消せます。</li>
+      <li>正しく入力できたらregister glyphで字形を登録します。</li>
+      <li>必要なだけ1から3を繰り返します。</li>
+      <li>output textをクリックすると字形データが表示されます。字形データは文字とストローク群の連想配列です。ストロークは[x0,y0,x1,y1,...,xn,yn]の形式で表されます。各座標は枠の左上が(0,0)で右下が(256,256)となる座標系上の点です。</li>
+    </ol>
+    <p>作成したデータの使用例: <a href="DrawText.js">DrawText.js</a></p>
+
+    <h2>ソースコード</h2>
+    <ul>
+      <li><a href="index.html">index.html</a></li>
+      <li><a href="FontEditor.js">FontEditor.js</a></li>
+      <li><a href="Vector2.js">Vector2.js</a></li>
+    </ul>
+  </body>
+</html>
