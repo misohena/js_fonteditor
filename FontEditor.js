@@ -256,7 +256,7 @@ FontEditor.prototype = {
             }
             txt += "\n";
 
-            txt += "'" + this.glyphsChar[gi] + "':"
+            txt += "'" + this.glyphsChar[gi] + "':";
 
             txt += "[";
             var si;
